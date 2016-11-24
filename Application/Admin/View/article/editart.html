@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<css file="__PUBLIC__/Css/public.css" />
+<style>
+option b{font-weight:blod;}
+</style>
+</head>
+<body>
+    <form action="{:U(MODULE_NAME.'/Article/update')}" method="post">
+        <table class="table">
+        <tr>
+            <th colspan="2">发布文章</th>
+        </tr>
+        <tr>
+            <td align="right">所属分类：</td>
+            <td>
+                <select name="cid">
+                    <option value="">===请选择分类===</option>
+                    <foreach name="cate" item="v">
+                    <option value="{$v.id}" <eq name="v.level" value="1">disabled="disabled"</eq> <eq name="v.id" value="$result[cid]">selected="selected"</eq> >{$v.prefix}{$v.name}</option>
+                    </foreach>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">文章属性：</td>
+            <td>
+                <foreach name="attr" item="v" key="k">
+                    <label style="margin-right:10px;">
+                        <input type="checkbox" name="aid[]" value="{$v.id}" <foreach name="result['attr']" item="vo"><eq name="vo.id" value="$k+1">checked="checked"</eq></foreach> />&nbsp;{$v.name}
+                    </label>
+                </foreach>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">文章标题：</td>
+            <td>
+                <input type="text" name="title" style="width:70%;" value="{$result.title}" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">点击次数：</td>
+            <td>
+                <input type="text" name="click" value="{$result.click}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <textarea name="content" id="content" style="width:100%;height:300px;">{$result.content}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+            	<input type="hidden" name="id" value="{$result.id}" />
+            	<if condition="$fromtrach eq 1">
+	            	<label style="margin-right:10px;">
+	                    <input type="checkbox" name="del" value="0" checked="checked" />&nbsp;通过审核
+	                </label>
+                </if>
+                <input type="submit" value="保存文章">&nbsp;&nbsp;&nbsp;&nbsp;
+                <if condition="$fromtrach eq 1">
+                    <input type="button" value="返回" onclick="location.href='{:U(MODULE_NAME.'/Article/trach')}';">
+                <else/>
+                    <input type="button" value="返回" onclick="location.href='{:U(MODULE_NAME.'/Article/index')}';">
+                </if>
+            </td>
+        </tr>
+        </table>
+    </form>
+</body>
+</html>

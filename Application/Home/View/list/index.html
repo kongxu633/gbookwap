@@ -1,0 +1,23 @@
+<include file="base/header" />
+
+    <!-- 这里是页面内容区 -->
+    <div class="content">
+		<div class="content-block-title">所有分类</div>
+		<div class="list-block">
+		  <ul>
+		    <foreach name="cate" item="v">
+		    <a href="{:U(MODULE_NAME.'/Index/getArticle',array('cid'=>$v['id']))}">
+		    <li class="item-content item-link">
+		      <div class="item-media"><i class="icon icon-form-settings"></i></div>
+		      <div class="item-inner">
+		        <div class="item-title">{$v.name}</div>
+		        <div class="item-after"><span class="badge">{$v.num}</span></div>
+		      </div>
+		    </li>
+		    </a>
+		    </foreach>
+		  </ul>
+		</div>
+    </div>
+    
+<include file="base/footer" />

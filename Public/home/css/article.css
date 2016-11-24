@@ -1,0 +1,30 @@
+@charset 'utf-8';
+.list-block textarea{
+    height:8rem;
+}
+
+.up-pic {
+    height:3rem;
+    width:3rem;
+    display:block;
+    position:relative;
+    border:1px solid #ccc;
+    margin: .4rem;
+    margin-left: 0;
+}
+.up-pic:before, .up-pic:after{
+    content:'';
+    height:2px;
+    width:1.5rem;
+    display:block;
+    background:#ccc;
+    position:absolute;
+    top:1.45rem;
+    left:.75rem;
+}
+.up-pic:after{
+    height:1.5rem;
+    width:2px;
+    left:1.45rem;
+	top:.75rem;
+}

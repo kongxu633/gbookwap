@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<css file="__PUBLIC__/Css/public.css" />
+</head>
+<body>
+    <form action="{:U(MODULE_NAME.'/Category/updateCate')}" method="post">
+        <table class="table">
+        <tr><th colspan="2">修改栏目分类</th></tr>
+        </table>
+        <table class="table">
+        <tr>
+            <input type="hidden" name="id" value="{$cate.id}"/>
+        </tr>
+        <tr>
+            <td align="right">分类名：</td>
+            <td><input type="text" name="name" value="{$cate.name}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="保存修改" />
+        </tr>
+        </table>
+    </form>
+</body>
+</html>

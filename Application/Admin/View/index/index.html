@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="__PUBLIC__/Js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/index.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Css/public.css" />
+<link rel="stylesheet" href="__PUBLIC__/Css/index.css" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<base target="iframe"/>
+<head>
+</head>
+<body>
+	<div id="top">
+		<div class="menu">
+			<a href="{:U(MODULE_NAME.'/Index/welcome')}">后台首页</a>
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+		</div>
+		<div class="exit">
+			{/*默认管理员 ID=1 已经在CommonController中判断，所以不会出现登陆*/}
+			<if condition="$login.uid gt 0">
+			欢迎回来,{$login.username}<a href="{:U(MODULE_NAME.'/Index/logout')}" target="_self">退出</a>
+			<else/>
+			<a href="{:U(MODULE_NAME.'/Login/index')}" target="_self">登陆</a>
+			</if>
+		</div>
+	</div>
+	<div id="left">
+		<dl>
+			<dt>文章管理</dt>
+			<dd><a href="{:U(MODULE_NAME.'/Article/index')}">文章列表</a></dd>
+			<dd><a href="{:U(MODULE_NAME.'/Article/addArt')}">添加文章</a></dd>
+			<dd><a href="{:U(MODULE_NAME.'/Article/trach')}">回收站</a></dd>
+		</dl>
+		<dl>
+			<dt>分类管理</dt>
+			<dd><a href="{:U(MODULE_NAME.'/Category/index')}">分类列表</a></dd>
+			<dd><a href="{:U(MODULE_NAME.'/Category/addCate')}">添加分类</a></dd>
+		</dl>
+		<dl>
+			<dt>属性管理</dt>
+			<dd><a href="{:U(MODULE_NAME.'/Attribute/index')}">属性列表</a></dd>
+			<dd><a href="{:U(MODULE_NAME.'/Attribute/addAttr')}">添加属性</a></dd>
+		</dl>
+        <dl>
+            <dt>系统设置</dt>
+            <dd><a href="{:U(MODULE_NAME.'/System/verify')}">验证码设置</a></dd>
+        </dl>		
+	</div>
+	<div id="right">
+		<iframe name="iframe" src="{:U(MODULE_NAME.'/Index/welcome')}"></iframe>
+	</div>
+</body>
+</html>

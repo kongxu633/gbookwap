@@ -1,0 +1,5 @@
+<include file="base/header" />
+    <div class="content">
+      <div class="content-block-title">全部留言</div><foreach name="art" item="v"><div class="card demo-card-header-pic"><div class="card-content"><div class="card-content-inner"><if condition=" $v['ip'] neq '' "><p style="font-size:0.6rem;" class="color-gray">来自 IP:{$v.ip|format_ip=###} 的纺城微中介用户:</p></if><p>{$v.content}</p></div></div><div class="card-footer"><a href="#" class="color-gray">{$v.time|timer=###}</a><a href="#" class="link"><if condition="count($v['pic']) gt 0">查看图片</if></a><a href="{:U(MODULE_NAME.'/Index/getArticle',array('cid'=>$v['cid']))}"><if condition="$v['cid'] lt 1">无分类<else/>{$v.cate}</if></a><foreach name="v.pic" item="p"><i>__ROOT__/Uploads/{$p.path}{$p.name}</i></foreach> </div></div></foreach>
+    </div>
+<include file="base/footer" />

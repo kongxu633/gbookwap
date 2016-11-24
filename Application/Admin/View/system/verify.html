@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<css file="__PUBLIC__/Css/public.css" />
+</head>
+<body>
+    <form action="{:U(MODULE_NAME.'/System/updateVerify')}" method="post">
+	    <table class="table">
+	    <tr><th colspan="2">验证码配置</th></tr>
+	    </table>
+	    <table class="table">
+	    <tr>
+	        <td align="right">验证码种子：</td>
+	        <td><input type="text" name="VERIFY_SEED" value="{:C('VERIFY_SEED')}" /></td>
+	    </tr>
+	    <tr>
+	        <td colspan="2" align="center"><input type="submit" value="保存修改" />
+	    </tr>
+	    </table>
+    </form>
+</body>
+</html>

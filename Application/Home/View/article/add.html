@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>信息发布</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta name="Keywords"  content="纺城微中介,叠石桥分类信息,志浩本地生活,纺城微中介微信端" />
+    <meta name="Description" content="纺城微中介，为你提供企业招聘、求职信息、房屋租售、车辆买卖、行业供求、本地生活等海量分类信息，充分满足您免费查看发布信息的需求。纺城微中介，家纺城地区最好的分类信息网。" />
+
+    <link rel="stylesheet" href="__PUBLIC__/light7/css/light7.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/weui/css/weui.min.css">
+
+    <script type="text/javascript">
+      var current_url = '__SELF__';
+       var UPLOAD_HANDLE = "{:U(MODULE_NAME.'/Article/upload')}";
+        var UPLOAD_PATH = "__ROOT__/Uploads/";
+    </script>
+
+  </head>
+<body>
+    <!--内容开始-->
+
+    <div class="page-group">
+
+        <div id="page-ptr-tabs" class="page">
+            <!-- 标题栏 -->
+
+		    <!-- 工具栏 -->
+		    <nav class="bar bar-tab">
+		        <a class="tab-item external" href="{:U(MODULE_NAME.'/Index/index')}">
+		            <span class="icon icon-home"></span>
+		            <span class="tab-label">首页</span>
+		        </a>
+		        <a class="tab-item external" href="{:U(MODULE_NAME.'/List/index')}">
+		            <span class="icon icon-app"></span>
+		            <span class="tab-label">列表</span>
+		        </a>
+		        <a class="tab-item external" href="{:U(MODULE_NAME.'/Article/add')}">
+		            <span class="icon icon-message"></span>
+		            <span class="tab-label">发布</span>
+		        </a>
+		        <a class="tab-item external open-popup" href="javascript:;">
+		            <span class="icon icon-friends"></span>
+		            <span class="tab-label">关于</span>
+		        </a>
+		    </nav>
+
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+
+    <!--BEGIN toast-->
+    <div id="toast" style="display: none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <i class="weui_icon_toast"></i>
+            <p class="weui_toast_content">已完成</p>
+        </div>
+    </div>
+    <!--end toast-->
+
+    <!-- loading toast -->
+    <div id="loadingToast" class="weui_loading_toast" style="display:none;">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+            <div class="weui_loading">
+                <div class="weui_loading_leaf weui_loading_leaf_0"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_1"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_2"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_3"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_4"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_5"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_6"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_7"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_8"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_9"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_10"></div>
+                <div class="weui_loading_leaf weui_loading_leaf_11"></div>
+            </div>
+            <p class="weui_toast_content">正在处理</p>
+        </div>
+    </div>
+
+    <div class="weui_dialog_alert" id="dialog" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><i class="weui_icon_warn weui_icon_msg"></i></div>
+            <div class="weui_dialog_bd">留言内容为空!</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:$('#dialog').hide();" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+
+
+    <form id="myform" action="{:U(MODULE_NAME.'/Article/save')}" method="post">
+
+    <div class="weui_cells_title"><b>家纺城公众圈</b>免费为大家发布招聘求职、房屋租售、供求信息、寻人启事等信息。</div>
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <textarea id="content" name="content" class="weui_textarea" placeholder="请留言...（尽可能详细，含联系方式）" rows="3"></textarea>
+                <div class="weui_textarea_counter"><span>0</span>/500</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui_cells weui_cells_form">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <div class="weui_uploader">
+                    <div class="weui_uploader_hd weui_cell">
+                        <div class="weui_cell_bd weui_cell_primary">图片上传</div>
+                        <div class="weui_cell_ft"><span>0</span>/5</div>
+                    </div>
+                    <div class="weui_uploader_bd">
+                        <ul class="weui_uploader_files">
+                        </ul>
+                        <div class="weui_uploader_input_wrp">
+                            <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui_cells weui_cells_form" style="display:none;">
+        <div id="pics" class="weui_cell">
+        </div>
+    </div>
+
+    <div class="weui_btn_area">
+        <input type="submit" class="weui_btn weui_btn_primary" value="确认提交">
+    </div>
+
+    </form>
+
+    <div id="footer" class="weui_cells_title">
+        <p>*注：家纺城公众圈只负责对信息进行转发，不保证信息的准确性、有效性、及时性和完整性。在法律允许的范围内，家纺城公众圈在此声明，不承担任何人就使用或未能使用本平台所提供的信息或任何链接所引致的任何直接、间接、附带、从属、特殊、惩罚性或惩戒性的损害赔偿。</p>
+    </div>
+
+
+            </div><!-- content -->
+
+        </div><!-- page -->
+    </div><!-- page-group -->
+
+    <!-- 关于 -->
+    <div class="popup">
+      <div class="content-block">
+        <p>关于</p>
+        <h4>家纺城公众圈</h4>
+        <p>免费为大家发布招聘求职、房屋租售、供求信息、寻人启事等信息。</p>
+        <p>请自觉遵守国家相关法律法规，文明留言！</p>
+        <p><a href="#" class="close-popup">关闭</a></p>
+      </div>
+    </div>
+    <!--内容结束-->
+    <script type='text/javascript' src='__PUBLIC__/lib/jquery.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='__PUBLIC__/light7/js/light7.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='__PUBLIC__/home/js/common.js' charset='utf-8'></script>
+    <script type='text/javascript' src='__PUBLIC__/home/js/lrz.all.bundle.js' charset='utf-8'></script>
+    <script type='text/javascript' src='__PUBLIC__/home/js/add.js' charset='utf-8'></script>
+  </body>
+</html>

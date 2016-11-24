@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="content">
+	<p>时间：{$v.time|date="Y-m-d H:i:s",###}</p>
+	<p>{$v.content}</p>
+	<if condition="count($v['pic']) gt 0">
+		<foreach name="v.pic" item="p">
+		<p>
+		<a href="__ROOT__/Uploads/{$p.path}{$p.name}" target="_blank">__ROOT__/Uploads/{$p.path}{$p.name}</a>
+		<img src="__ROOT__/Uploads/{$p.path}{$p.name}" width="200">
+		</p>
+		</foreach>
+	</if>
+</div>
+</body>
+</html>
