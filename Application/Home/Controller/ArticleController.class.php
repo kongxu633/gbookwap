@@ -77,4 +77,8 @@ class ArticleController extends Controller {
         $this->ajaxReturn($result);
 
     }
+
+    public function gotoweb(){
+        echo '<meta http-equiv="refresh" content="0;url=http://nt.jfbst.com">';
+    }
 }
