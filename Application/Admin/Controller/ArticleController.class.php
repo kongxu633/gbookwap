@@ -152,12 +152,14 @@ class ArticleController extends CommonController {
                 'content' => I('content'),
                 'click' => I('click',100,'intval'),
                 'cid' => I('cid',0,'intval'),
+                'aid' => 0,
                 'del' => $del,
         ];
 
-        $data['attr'] = ['0'];
+        $data['attr'] = ['0'];  //能否改为[]
         if(isset($_POST['aid'])){
             foreach ($_POST['aid'] as $v){
+                if( $v == 1 ){ $data['aid'] = 1; }
                 $data['attr'][] = $v;
             }
         }

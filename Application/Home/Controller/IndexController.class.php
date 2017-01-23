@@ -8,7 +8,7 @@ class IndexController extends Controller {
             $art = S($cache_art);
         }else{
             $ret = D('article')->getArticle();
-            $art = get_top($ret,'1');
+            $art = get_top($ret,'1');//存在一个bug,只能对前面100条提取置顶
             S($cache_art,$art,180);
         }
         $this->assign('art',$art);
