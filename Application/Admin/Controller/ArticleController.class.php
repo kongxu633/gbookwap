@@ -138,12 +138,19 @@ class ArticleController extends CommonController {
             $this->error('标题重复');
         }
 
+        $fromtrach = I('fromtrach');
+        if( $fromtrach ){
+            $del = I('del',1,'intval');
+        }else{
+            $del = 0;
+        }
+
         $data = [
                 'title' => $title,
                 'content' => I('content'),
                 'click' => I('click',100,'intval'),
                 'cid' => I('cid',0,'intval'),
-                'del' => I('del',1,'intval'),
+                'del' => $del,
         ];
 
         $data['attr'] = ['0'];

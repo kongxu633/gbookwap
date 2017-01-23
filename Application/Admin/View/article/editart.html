@@ -57,7 +57,8 @@ option b{font-weight:blod;}
             	<input type="hidden" name="id" value="{$result.id}" />
             	<if condition="$fromtrach eq 1">
 	            	<label style="margin-right:10px;">
-	                    <input type="checkbox" name="del" value="0" checked="checked" />&nbsp;通过审核
+                        <input type="text" name="fromtrach" value="1" style="display:none;"/>
+	                    <input type="checkbox" name="del" checked="checked" />&nbsp;通过审核
 	                </label>
                 </if>
                 <input type="submit" value="保存文章">&nbsp;&nbsp;&nbsp;&nbsp;
