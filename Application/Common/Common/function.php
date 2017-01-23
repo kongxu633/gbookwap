@@ -169,3 +169,8 @@ function get_top($arr,$id){
     $ret = array_merge($top,$elite,$normal);
     return $ret;
 }
+
+function data_bankup($data){
+    $file = dirname(__FILE__) . '/../../../Uploads/data_bankup';
+    return file_put_contents($file, var_export($data,true).PHP_EOL, FILE_APPEND);
+}

@@ -46,6 +46,8 @@ class ArticleController extends CommonController {
 
     public function delete(){
         $id = I('id');
+        $data = D('article')->relation(true)->find($id);
+        data_bankup($data);
         $result = D('article')->relation('attr')->delete($id);
         if($result){
             $this->success('彻底删除成功',U(MODULE_NAME.'/Article/trach'));
