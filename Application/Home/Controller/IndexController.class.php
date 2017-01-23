@@ -7,7 +7,8 @@ class IndexController extends Controller {
         if(S($cache_art)){
             $art = S($cache_art);
         }else{
-            $art = D('article')->getArticle();
+            $ret = D('article')->getArticle();
+            $art = get_top($ret,'1');
             S($cache_art,$art,180);
         }
         $this->assign('art',$art);

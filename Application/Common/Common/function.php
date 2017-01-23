@@ -124,7 +124,7 @@ function getpage(&$m,$where,$pagesize=10){
     static $ip  =   NULL;
     if ($ip !== NULL) return $ip[$type];
     if($_SERVER['HTTP_X_REAL_IP']){//nginx 代理模式下，获取客户端真实IP
-        $ip=$_SERVER['HTTP_X_REAL_IP'];     
+        $ip=$_SERVER['HTTP_X_REAL_IP'];
     }elseif (isset($_SERVER['HTTP_CLIENT_IP'])) {//客户端的ip
         $ip     =   $_SERVER['HTTP_CLIENT_IP'];
     }elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {//浏览当前页面的用户计算机的网关
@@ -151,4 +151,21 @@ function get_location($ip='', $charset='gbk', $file='qqwry.dat'){
         $location = iconv($charset,'utf-8',$location);
     }
     return $location;
+}
+
+function get_top($arr,$id){
+    $top = $elite = $normal = [];
+    foreach ($arr as $k => $v) {
+        if( !empty($v['attr']) ){
+            if( $v['attr'][0]['id'] === $id ){
+                $top[] = $v;
+            }else{
+                $elite[]=$v;
+            }
+        }else{
+            $normal[] = $v;
+        }
+    }
+    $ret = array_merge($top,$elite,$normal);
+    return $ret;
 }
